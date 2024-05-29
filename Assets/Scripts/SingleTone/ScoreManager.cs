@@ -11,12 +11,12 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance {  get; private set; }
 
     //Score 
-    public TMP_Text scoreText;
+    public string scoreText;
     public int score;
 
     //Ranking
-    private List<int> scoreLank = new List<int>();  //Rnk 저장
-    [SerializeField] private TMP_Text[] RankText;
+    private List<int> scoreLank = new List<int>();  //Rank 저장
+    public string[] rankTexts;
     private int preBestScore = 0;
 
     private void Awake()
@@ -26,14 +26,16 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            return;
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
-
         #endregion
     }
+
 
     //Score
     public void UpScore()
@@ -41,9 +43,9 @@ public class ScoreManager : MonoBehaviour
         score += 1000;
         UpdateScore();
     }
-    private void UpdateScore()  //Score ->  ToString
+    public void UpdateScore()  //Score ->  ToString
     {
-        scoreText.text = "Score: " + score.ToString("0,000");
+        scoreText = "Score: " + score.ToString("0,000");
     }
 
     //Ranking 
@@ -68,17 +70,26 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateRanking()    //Ranking UI 표시
     {
-        int numToshow = Mathf.Min(RankText.Length, scoreLank.Count);
+        int numToshow = Mathf.Min(rankTexts.Length, scoreLank.Count);
 
         for(int i = 0; i < numToshow; i++)
         {
-            RankText[i].text = $"{i + 1}. {scoreLank[i]}";
+            rankTexts[i] = $"{i + 1}. {scoreLank[i]}";
         }
-        for(int i =numToshow; i< RankText.Length; i++)
+        for(int i =numToshow; i< rankTexts.Length; i++)
         {
-            RankText[i].text = "";
+            rankTexts[i] = "";
         }
     }
 
 
+    public string[] GetRankTexts()
+    {
+        return rankTexts;
+    }
+
+    public string GetScoreTexts()
+    {
+        return scoreText;
+    }
 }

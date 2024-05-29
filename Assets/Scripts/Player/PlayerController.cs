@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             acceleratSpeed = 1f;    //Basic Speed
 
             // + End
-            EndGame();
+            EndGame();        
         }
     }
 
@@ -79,13 +79,15 @@ public class PlayerController : MonoBehaviour
     public void EndGame()
     {
         EndPopUp.gameObject.SetActive(true);
-        ScoreManager.instance.AddScoreToRanking(ScoreManager.instance.score);
         ScoreManager.instance.SavePreScore();
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        EndPopUp.gameObject.SetActive(true);
+        EndPopUp.gameObject.SetActive(false);
+
+        ScoreManager.instance. score = 0;
+        ScoreManager.instance. UpdateScore();
     }
 }
