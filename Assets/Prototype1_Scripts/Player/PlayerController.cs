@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
 {
     private float verticalInput;
 
+    private float highBoundary = 53f;
+    private float LowBoundary = -53f;
+    private Vector3 init;
+
     //Speed
     [SerializeField]private float speed;
     [SerializeField]private float acceleratSpeed;
@@ -73,18 +77,30 @@ public class PlayerController : MonoBehaviour
     {
         verticalInput = Input.GetAxis("Vertical");
 
-        //I,O Key
-        if (Input.GetKey(KeyCode.I))
+        if (transform.position.y <= highBoundary && transform.position.y >= LowBoundary)
         {
-            verticalInput = 1;
+            //I,O Key
+            if (Input.GetKey(KeyCode.I))
+            {
+                verticalInput = 1;
+            }
+            else if (Input.GetKey(KeyCode.K))
+            {
+                verticalInput = -1;
+            }
+            transform.Translate(Vector3.forward * speed * acceleratSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.left * rotateSpeed * Time.deltaTime * verticalInput);
         }
-        else if (Input.GetKey(KeyCode.I))
+        else
         {
-            verticalInput = -1;
-        }
+            Vector3 currentPos = transform.position;
+            currentPos.y = 0;
+            transform.position = currentPos;
 
-        transform.Translate(Vector3.forward * speed  * acceleratSpeed * Time.deltaTime );
-        transform.Rotate(Vector3.left * rotateSpeed * Time.deltaTime * verticalInput);
+            Quaternion currentRot = transform.rotation;
+            currentRot.x = 0;
+            transform.rotation = currentRot;
+        }
     }
 
     public void EndGame()
