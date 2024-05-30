@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     //GameOver
     [SerializeField] private GameObject EndPopUp;
 
+    private bool isGameOver;
 
     private void Update()
     {
@@ -46,15 +47,25 @@ public class PlayerController : MonoBehaviour
             objectSpawner.Invoke("DestroyObstacle", destroyDelay);
             objectPool.poolQueue.Enqueue(objectPool.pool.Get());     //다음 오브젝트 생성
 
+            isGameOver = false;
+
             //ScoreUp
             ScoreManager.instance.UpScore();
+
+            if(isGameOver)
+            {
+                ScoreManager.instance.score -= 1000;
+            }
         }
         else if(other.CompareTag("Obstacles"))
         {
-            acceleratSpeed = 1f;    //Basic Speed
+            acceleratSpeed = 0f;    //Basic Speed
 
-            // + End
-            EndGame();        
+            isGameOver = true;
+            if(isGameOver)
+            {  // + End
+                EndGame();
+            }
         }
     }
 
@@ -78,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
     public void EndGame()
     {
+
         EndPopUp.gameObject.SetActive(true);
         ScoreManager.instance.SavePreScore();
     }
