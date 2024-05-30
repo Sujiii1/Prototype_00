@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     [SerializeField] private float topBound = 19f;
-    //[SerializeField] private float lowBound = -25f;
+    [SerializeField] private float lowBound = -25f;
 
     private void Update()
     {
@@ -18,10 +18,10 @@ public class DestroyOutOfBounds : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       /* else if(transform.position .z < lowBound)
+        else if (transform.position.z < lowBound)
         {
             Destroy(gameObject);
-        }*/
+        }
 
     }    
 }

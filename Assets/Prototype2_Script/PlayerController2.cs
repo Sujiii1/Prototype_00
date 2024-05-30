@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
@@ -38,16 +39,27 @@ public class PlayerController2 : MonoBehaviour
     }
 
 
-    //InputSystem 
     #region [InputSystem _ Shoot]
-    public void OnShoot(InputAction.CallbackContext context)
+
+    /*private void OnShoot(Input value)
     {
-        if(isCanShoot)      //key가 두 번 호출X
+        Vector2 input = value.Get<Vector2>();
+        if(input != null)
+        {
+            Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
+        }
+
+    }*/
+
+
+    public void OnShoot(InputAction.CallbackContext context)      //Event 호출
+    {
+        if (isCanShoot)      //key가 두 번 호출X
         {
             Vector3 input = context.ReadValue<Vector3>();
 
             Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
-            isCanShoot=false;
+            isCanShoot = false;
             Invoke("ResetShoot", shootDelay);
         }
     }

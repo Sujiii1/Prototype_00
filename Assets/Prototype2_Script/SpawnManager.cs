@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
+    //Create
     [SerializeField] private GameObject[] animalPrefebs;
     [SerializeField] private int animalIndex;
 
 
 
+    #region [InputSystem _ CreateAnimal]
     public void OnCreateAnimal(InputAction.CallbackContext context)
     {
-        if(context.action.triggered)
+        if (context.performed) 
         {
-            Debug.Log(context);
-           Instantiate(animalPrefebs[animalIndex], new Vector3(0, 0, 20), animalPrefebs[animalIndex].transform.rotation);
+             Debug.Log("Debug");
+            Instantiate(animalPrefebs[animalIndex], new Vector3(0, 0, 15), animalPrefebs[animalIndex].transform.rotation);
+
         }
+
     }
+    #endregion
 }
