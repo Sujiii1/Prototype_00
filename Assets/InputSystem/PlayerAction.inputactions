@@ -7,9 +7,27 @@
             "actions": [
                 {
                     "name": "Shoot",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "7da3fb97-e1b3-4558-ac90-c709160c0e3a",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.4)",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CreateAnimal",
+                    "type": "Button",
+                    "id": "59d21b90-3539-40ed-bbae-0efb3528c424",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.3)",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CreateDog",
+                    "type": "Value",
+                    "id": "f9e31d4c-4610-4842-90d4-622b06542799",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -17,81 +35,37 @@
             ],
             "bindings": [
                 {
-                    "name": "3D Vector",
-                    "id": "16326496-9768-4c64-af57-38cdccad7546",
-                    "path": "3DVector",
+                    "name": "",
+                    "id": "238e4782-9ed3-4945-8886-4f50b3b67a0c",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
-                    "isComposite": true,
+                    "action": "CreateAnimal",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "2453f36a-f50d-45ec-ac32-cd4f511fb75c",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "f0af1d7f-2030-4421-9ecd-6b172bd46758",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "ccd6e110-ba8c-466d-9ec4-d0ffd6e0c88b",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e9090869-01d8-4615-84d6-08658174e1ff",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "forward",
-                    "id": "4948a933-05ab-4351-9784-a0b39931ce41",
+                    "name": "",
+                    "id": "9b5659a6-6d84-4dc3-b4a0-974bea8bc9e6",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.3)",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "backward",
-                    "id": "4c117bff-6a69-403a-ba66-d723834363ef",
-                    "path": "",
-                    "interactions": "",
+                    "name": "",
+                    "id": "2ea9c176-356f-4cb5-930a-006672980f0b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(pressPoint=0.3)",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "CreateDog",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }

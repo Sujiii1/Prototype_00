@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class PlayerController2 : MonoBehaviour
+public class PlayerControllerPro : MonoBehaviour
 {
     //Player Move
     private float horizontalInput;
@@ -41,16 +41,18 @@ public class PlayerController2 : MonoBehaviour
 
     #region [InputSystem _ Shoot]
 
-    /*private void OnShoot(Input value)
+    public void OnShoot(InputAction.CallbackContext context)      //Event 호출
     {
-        Vector2 input = value.Get<Vector2>();
-        if(input != null)
+        if(context.performed)
         {
+            Debug.Log("OnShoot");
             Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
         }
+    }
 
-    }*/
+    #endregion
 
+/*    #region [InputSystem _ Shoot]
 
     public void OnShoot(InputAction.CallbackContext context)      //Event 호출
     {
@@ -68,6 +70,6 @@ public class PlayerController2 : MonoBehaviour
     {
         isCanShoot = true;
     }
-    #endregion
+    #endregion*/
 
 }
