@@ -11,16 +11,7 @@
                     "id": "7da3fb97-e1b3-4558-ac90-c709160c0e3a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.4)",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "CreateAnimal",
-                    "type": "Button",
-                    "id": "59d21b90-3539-40ed-bbae-0efb3528c424",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(pressPoint=0.3)",
+                    "interactions": "",
                     "initialStateCheck": true
                 },
                 {
@@ -31,20 +22,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "CreateAnimal",
+                    "type": "Button",
+                    "id": "dcb29b7c-0369-4b7e-83e4-ee02d40b75cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "238e4782-9ed3-4945-8886-4f50b3b67a0c",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CreateAnimal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "9b5659a6-6d84-4dc3-b4a0-974bea8bc9e6",
@@ -64,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CreateDog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ea7f005-10e8-4986-973c-1872786ae8f8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CreateAnimal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

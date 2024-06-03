@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,31 +9,27 @@ public class PlayerController_C : MonoBehaviour
 {
     public GameObject dogPrefab;
     private float creatDogTime = 3f;
-    private bool isCreating = true;
+    private bool isCreating = false;
+    private bool hasCreated = false;
+    
 
-
-
-      private void OnCreateDog(InputValue value)
+    private void OnCreateDog(InputValue value)
     {
-        
-            if (value.isPressed)
-            {
-            if(!isCreating)
-            {
-                isCreating = true;
-                StartCoroutine(CreateDogDelay_Co());
-            }
-               
-            }
-        
-
-        
+        if (value.isPressed && !hasCreated)
+        {
+            hasCreated = true;
+            isCreating = true;
+            StartCoroutine(CreateDogDelay_Co());
+        }
     }
+
     private IEnumerator CreateDogDelay_Co()
     {
+        //2초 뒤인가?
         isCreating = false;
         yield return new WaitForSeconds(creatDogTime);
-        Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);           
+        Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
+        hasCreated = false;
     }
 
 

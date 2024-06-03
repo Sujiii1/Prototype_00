@@ -20,7 +20,7 @@ public class SpawnManagerX : MonoBehaviour
         //공 생성 사이 시간 랜덤
         float spawnDelay = Random.Range(startDelay, spawnInterval);
         InvokeRepeating("SpawnRandomBall", spawnDelay, spawnDelay);
-        Debug.Log($"spawnDelay : {spawnDelay}");
+        //Debug.Log($"spawnDelay : {spawnDelay}");
     }
 
 
@@ -41,7 +41,7 @@ public class SpawnManagerX : MonoBehaviour
         float nextSpawn = Random.Range(startDelay, spawnInterval);
         Invoke("SpawnRandomBall_", nextSpawn);
 
-        Debug.Log($"nextSpawn : {nextSpawn}");
+        //Debug.Log($"nextSpawn : {nextSpawn}");
     }
 
 }

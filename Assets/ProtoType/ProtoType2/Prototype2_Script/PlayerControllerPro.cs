@@ -18,6 +18,8 @@ public class PlayerControllerPro : MonoBehaviour
     [SerializeField] private bool isCanShoot = true;    
         
 
+    public SpawnManager spawnManager;
+
     private void Update()
     {
         PlayerMove();
@@ -41,35 +43,44 @@ public class PlayerControllerPro : MonoBehaviour
 
     #region [InputSystem _ Shoot]
 
-    public void OnShoot(InputAction.CallbackContext context)      //Event 호출
+    public void OnShoot(InputValue value)      //Event 호출
     {
-        if(context.performed)
+        if(value.isPressed)
         {
             Debug.Log("OnShoot");
             Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
         }
     }
 
-    #endregion
-
-/*    #region [InputSystem _ Shoot]
-
-    public void OnShoot(InputAction.CallbackContext context)      //Event 호출
+    public void OnCreateAnimal(InputValue value)
     {
-        if (isCanShoot)      //key가 두 번 호출X
+        if (value.isPressed)
         {
-            Vector3 input = context.ReadValue<Vector3>();
-
-            Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
-            isCanShoot = false;
-            Invoke("ResetShoot", shootDelay);
+            Debug.Log("OnCreateAnimal");
+            spawnManager.Create();
         }
     }
 
-    private void ResetShoot()
-    {
-        isCanShoot = true;
-    }
-    #endregion*/
+
+    #endregion
+    /*    #region [InputSystem _ Shoot]
+
+        public void OnShoot(InputAction.CallbackContext context)      //Event 호출
+        {
+            if (isCanShoot)      //key가 두 번 호출X
+            {
+                Vector3 input = context.ReadValue<Vector3>();
+
+                Instantiate(itemPrefebs, transform.position, itemPrefebs.transform.rotation);   //Shoot
+                isCanShoot = false;
+                Invoke("ResetShoot", shootDelay);
+            }
+        }
+
+        private void ResetShoot()
+        {
+            isCanShoot = true;
+        }
+        #endregion*/
 
 }

@@ -33,16 +33,7 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
                     ""id"": ""7da3fb97-e1b3-4558-ac90-c709160c0e3a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=0.4)"",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""CreateAnimal"",
-                    ""type"": ""Button"",
-                    ""id"": ""59d21b90-3539-40ed-bbae-0efb3528c424"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=0.3)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
@@ -53,20 +44,18 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CreateAnimal"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcb29b7c-0369-4b7e-83e4-ee02d40b75cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""238e4782-9ed3-4945-8886-4f50b3b67a0c"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CreateAnimal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""9b5659a6-6d84-4dc3-b4a0-974bea8bc9e6"",
@@ -88,6 +77,17 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
                     ""action"": ""CreateDog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ea7f005-10e8-4986-973c-1872786ae8f8"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CreateAnimal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -97,8 +97,8 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_CreateAnimal = m_Player.FindAction("CreateAnimal", throwIfNotFound: true);
         m_Player_CreateDog = m_Player.FindAction("CreateDog", throwIfNotFound: true);
+        m_Player_CreateAnimal = m_Player.FindAction("CreateAnimal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,15 +161,15 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_CreateAnimal;
     private readonly InputAction m_Player_CreateDog;
+    private readonly InputAction m_Player_CreateAnimal;
     public struct PlayerActions
     {
         private @PalyerActionControll m_Wrapper;
         public PlayerActions(@PalyerActionControll wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @CreateAnimal => m_Wrapper.m_Player_CreateAnimal;
         public InputAction @CreateDog => m_Wrapper.m_Player_CreateDog;
+        public InputAction @CreateAnimal => m_Wrapper.m_Player_CreateAnimal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -182,12 +182,12 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @CreateAnimal.started += instance.OnCreateAnimal;
-            @CreateAnimal.performed += instance.OnCreateAnimal;
-            @CreateAnimal.canceled += instance.OnCreateAnimal;
             @CreateDog.started += instance.OnCreateDog;
             @CreateDog.performed += instance.OnCreateDog;
             @CreateDog.canceled += instance.OnCreateDog;
+            @CreateAnimal.started += instance.OnCreateAnimal;
+            @CreateAnimal.performed += instance.OnCreateAnimal;
+            @CreateAnimal.canceled += instance.OnCreateAnimal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -195,12 +195,12 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @CreateAnimal.started -= instance.OnCreateAnimal;
-            @CreateAnimal.performed -= instance.OnCreateAnimal;
-            @CreateAnimal.canceled -= instance.OnCreateAnimal;
             @CreateDog.started -= instance.OnCreateDog;
             @CreateDog.performed -= instance.OnCreateDog;
             @CreateDog.canceled -= instance.OnCreateDog;
+            @CreateAnimal.started -= instance.OnCreateAnimal;
+            @CreateAnimal.performed -= instance.OnCreateAnimal;
+            @CreateAnimal.canceled -= instance.OnCreateAnimal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -221,7 +221,7 @@ public partial class @PalyerActionControll: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnShoot(InputAction.CallbackContext context);
-        void OnCreateAnimal(InputAction.CallbackContext context);
         void OnCreateDog(InputAction.CallbackContext context);
+        void OnCreateAnimal(InputAction.CallbackContext context);
     }
 }

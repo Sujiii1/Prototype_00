@@ -196,7 +196,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 1e-45, z: 4.16e-43, w: 1.56766e-40}
+  m_BoundingSphereOverride: {x: 8.25e-43, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -1773,6 +1773,7 @@ MonoBehaviour:
   itemPrefebs: {fileID: 8288557358302842604, guid: a73e5838aa1a85e4091da57dc7e641ba, type: 3}
   shootDelay: 0.5
   isCanShoot: 1
+  spawnManager: {fileID: 410960812}
 --- !u!114 &1652713234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,7 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 1aea7fe0386f4294180fe065fc2c8083, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -1830,6 +1831,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 59d21b90-3539-40ed-bbae-0efb3528c424
     m_ActionName: Player/CreateAnimal[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f9e31d4c-4610-4842-90d4-622b06542799
+    m_ActionName: Player/CreateDog[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

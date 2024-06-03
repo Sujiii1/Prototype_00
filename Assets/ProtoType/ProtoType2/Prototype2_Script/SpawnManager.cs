@@ -17,10 +17,18 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("Create", 2, 1.5f);
     }*/
 
-    #region [InputSystem _ CreateAnimal]
-    public void OnCreateAnimal(InputAction.CallbackContext context)
+/*    private void Update()
     {
-        if (context.performed)
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Create();
+        }
+    }*/
+
+    #region [InputSystem _ CreateAnimal]
+    private void OnCreateAnimal(InputValue value)
+    {
+        if (value.isPressed)
         {
             Debug.Log("OnCreateAnimal");
 
@@ -28,7 +36,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void Create()
+    public void Create()
     {
         int animalIndex = Random.Range(0, animalPrefebs.Length); ;
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, createPos);
