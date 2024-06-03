@@ -7,6 +7,7 @@ TagManager:
   - Obstacles
   - PassZone
   - EndPopUp
+  - Ground
   layers:
   - Default
   - TransparentFX
