@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3850115423090759945}
   - component: {fileID: 845204272232442844}
   - component: {fileID: 9150177077379932373}
-  - component: {fileID: 2622792128332957840}
   - component: {fileID: 5299671850210400020}
+  - component: {fileID: 2622792128332957840}
   - component: {fileID: 2099684566744020545}
   m_Layer: 0
   m_Name: Money
@@ -86,6 +86,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5299671850210400020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545721713853595661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e6556bfaaf8448faa6f3f29def86ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: -150
 --- !u!114 &2622792128332957840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,19 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
---- !u!114 &5299671850210400020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4545721713853595661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e6556bfaaf8448faa6f3f29def86ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinSpeed: -250
 --- !u!65 &2099684566744020545
 BoxCollider:
   m_ObjectHideFlags: 0

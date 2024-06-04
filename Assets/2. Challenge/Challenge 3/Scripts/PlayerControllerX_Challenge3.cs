@@ -57,7 +57,10 @@ public class PlayerControllerX_Challenge3 : MonoBehaviour
             fireworksParticle.Play();
             playerAudio.PlayOneShot(moneySound, 1.0f);
             Destroy(other.gameObject);
-
+        }
+        else if(other.gameObject.CompareTag("Ground"))
+        {
+            playerRb.AddForce(Vector3.up * floatForce *30, ForceMode.Impulse);
         }
 
     }
