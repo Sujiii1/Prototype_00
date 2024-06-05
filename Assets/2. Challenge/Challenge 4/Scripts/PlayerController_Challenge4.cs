@@ -45,6 +45,7 @@ public class PlayerController_Challenge4 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
+            Debug.Log("PowerUp");
             Destroy(other.gameObject);
             hasPowerup = true;
             powerupIndicator.SetActive(true);
@@ -70,7 +71,6 @@ public class PlayerController_Challenge4 : MonoBehaviour
             }
         }
     }
-
 
 
     // Coroutine to count down powerup duration

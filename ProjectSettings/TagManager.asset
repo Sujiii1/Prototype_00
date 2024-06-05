@@ -7,13 +7,6 @@ TagManager:
   - Obstacles
   - PassZone
   - EndPopUp
-  - Ground
-  - Background
-  - Money
-  - Bomb
-  - Dog
-  - PowerUp
-  - Enemy
   layers:
   - Default
   - TransparentFX
